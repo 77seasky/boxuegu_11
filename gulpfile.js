@@ -46,7 +46,8 @@ gulp.task('less', function() {
 var jsLibs = [
     'node_modules/art-template/lib/template-web.js',
     'node_modules/jquery/dist/jquery.js',
-    'node_modules/bootstrap/dist/js/bootstrap.js'
+    'node_modules/bootstrap/dist/js/bootstrap.js',
+    'node_modules/jquery-form/dist/jquery.form.min.js'
 ];
 
 //合并所有的第三方包为一个js
@@ -54,7 +55,7 @@ gulp.task('jsLib', function() {
     gulp.src(jsLibs)
         .pipe(concat('lib.js'))
         .pipe(gulp.dest('dist/js'));
-})
+});
 
 
 /**
@@ -102,7 +103,7 @@ gulp.task('js', function() {
         pathArr = jsPath.split('/'); //bian成['src','js','user','login.js]
         jsName = pathArr.pop(); // 取出login.js，数组变成['src','js','user'] 
         pathArr.shift() //取出src，数组变成['js','user']
-        browserify(jsPath).bundle()
+        browserify(jsPath, { debug: true }).bundle()
             .pipe(source(jsName))
             .pipe(buffer())
             // .pipe(uglify())
