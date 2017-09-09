@@ -1,4 +1,2 @@
-var a = require('./common/a.js');
-var b = require('./common/b.js');
-console.log(a);
-console.log(b);
+//需要头部退出功能，导入这里即可
+require('./common/header.js');
