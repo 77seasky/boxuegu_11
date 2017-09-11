@@ -1,0 +1,41 @@
+require('../common/header.js');
+require('../common/aside.js');
+
+/**
+ * 该页面功能点：
+ * 1.数据回显
+ * 2.表单提交
+ */
+
+/**
+ * 数据回显
+ * 1.请求接口获取当前用户的信息
+ * 2.使用模板引擎把数据嵌套到模板当中，得到数据渲染后的模板
+ * 基本语法： var html= template（'id',data）
+ * 3.把渲染后的模板插入到页面指定位置
+ */
+
+$.ajax({
+    url: '/v6/teacher/profile',
+    type: 'get',
+    success: function(data) {
+        if (data.code == 200) {
+            $('.teacher-profile').html(template('teacher-profile-tpl', data.result));
+        }
+    }
+});
+
+/**
+ * 表单提交：
+ * 1.因为表单要进行数据回显，所以是动态异步创建出来的。
+ * 这里要通过插件的ajaxForm监听表单中提交事件必须使用委托的方式，插件提供了 delegation: true。
+ * 2.修改成功后给个用户提示
+ */
+$('#teacher_profile_form').ajaxForm({
+    delegation: true,
+    success: function(data) {
+        if (data.code == 200) {
+            alert('修改成功');
+        }
+    }
+});

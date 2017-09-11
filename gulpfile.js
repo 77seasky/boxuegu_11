@@ -20,16 +20,23 @@ var source = require('vinyl-source-stream');
 // 这个是把vinyl对象文件中的数据转为buffer方式存储
 var buffer = require('vinyl-buffer');
 
+var htmlReplace = require('gulp-html-replace');
+
 
 //html处理
 gulp.task('html', function() {
     gulp.src(['src/**/*.html', 'index.html'])
-        .pipe(htmlmin({
-            collapseWhitespace: true, // 去掉空白字符
-            minifyJS: true, //压缩页面JS
-            minifyCSS: true, //压缩页面CSS
-            removeComments: true //清除HTML注释
+        .pipe(htmlReplace({
+            style: gulp.src('src/html/common/style.html'),
+            aside: gulp.src('src/html/common/aside.html'),
+            header: gulp.src('src/html/common/header.html')
         }))
+        // .pipe(htmlmin({
+        //     collapseWhitespace: true, // 去掉空白字符
+        //     minifyJS: true, //压缩页面JS
+        //     minifyCSS: true, //压缩页面CSS
+        //     removeComments: true //清除HTML注释
+        // }))
         .pipe(gulp.dest('dist'));
 });
 
