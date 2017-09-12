@@ -47,7 +47,7 @@
               <!-- 这里利用这个值与options中的value比较，对上了，就让这个option选中 -->
                             <option value="0">顶级分类</option>
               {{each top categoryTop i}}
-                            <option value="categoryTop.cg_id" {{cg_pid==categoryTop.cg_id?'selected':''}}>
+                            <option value="{{categoryTop.cg_id}}" {{cg_pid==categoryTop.cg_id?'selected':''}}>
                                 {{categoryTop.cg_name}}
                             </option>
               {{/each}}
