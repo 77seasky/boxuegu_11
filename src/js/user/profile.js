@@ -23,6 +23,7 @@ $.ajax({
     success: function(data) {
         if (data.code == 200) {
             $('.teacher-profile').html(template('teacher-profile-tpl', data.result));
+             initPlugin();
         }
     }
 });
@@ -41,3 +42,19 @@ $('#teacher_profile_form').ajaxForm({
         }
     }
 });
+
+/**
+  * 所有的插件初始化都放在这里
+  * */
+ function initPlugin() {
+   $('input[name=tc_birthday]').datepicker({
+     language: 'zh-CN',
+    format: 'yyyy-mm-dd',
+     endDate: new Date('2010-01-01')
+   });
+   $('input[name=tc_join_date]').datepicker({
+     language: 'zh-CN',
+     format: 'yyyy-mm-dd',
+     endDate: new Date('2010-01-01')
+   });
+ }
