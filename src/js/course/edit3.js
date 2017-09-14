@@ -60,6 +60,13 @@ $.get('/v6/course/lesson',{cs_id:cs_id},function(data){
  * */
  $('#lesson-form').ajaxForm({
  	delegation:true,
+ 	 // 表单提交之前做点事情
+   beforeSubmit: function(arrData, $form, options) {
+     arrData.push({
+       name: 'ct_is_free',
+       value: $('#ct_is_free').prop('checked')? 1: 0
+     })
+   },
  	success:function(data){
  		if(data.result){
  		alert('添加成功');
@@ -110,7 +117,8 @@ $.get('/v6/course/lesson',{cs_id:cs_id},function(data){
 			var index = getLessonIndex(formData.ct_id);
 			lesson.splice(index,1,lessonData);
 		}
-		 console.log(lessons);
+		  // 把新的章节列表数据进行渲染
+ 	  $('#lesson-list').html(template('lesson-list-tpl', lessons));
 	}
 	
 	/**
