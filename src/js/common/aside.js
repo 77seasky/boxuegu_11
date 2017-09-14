@@ -12,8 +12,8 @@
  * 3.然后把对象中的名字与头像设置到导航对应的标签中
  */
 var userinfoStr = localStorage.getItem('userinfo');
-var userinfo = JSON.parse(userinfoStr);
-$('.aside img').attr('src', userinfo.tc_avatar);
+var userinfo = JSON.parse(userinfoStr) || {};
+$('.aside img').attr('src', userinfo.tc_avatar || '/public/images/default.png');
 $('.aside h4').text(userinfo.tc_name);
 
 /**

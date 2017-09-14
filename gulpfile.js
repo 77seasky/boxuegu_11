@@ -29,7 +29,9 @@ gulp.task('html', function() {
         .pipe(htmlReplace({
             style: gulp.src('src/html/common/style.html'),
             aside: gulp.src('src/html/common/aside.html'),
-            header: gulp.src('src/html/common/header.html')
+            header: gulp.src('src/html/common/header.html'),
+            courseEditHeader:gulp.src('src/html/common/conrse/header.html'),
+            courseEditAside:gulp.src('src/html/common/conrse/aside.html')
         }))
         // .pipe(htmlmin({
         //     collapseWhitespace: true, // 去掉空白字符
@@ -54,7 +56,8 @@ var jsLibs = [
     'node_modules/art-template/lib/template-web.js',
     'node_modules/jquery/dist/jquery.js',
     'node_modules/bootstrap/dist/js/bootstrap.js',
-    'node_modules/jquery-form/dist/jquery.form.min.js'
+    'node_modules/jquery-form/dist/jquery.form.min.js',
+    'node_modules/jquery-cookie/jquery.cookie.js'
 ];
 
 //合并所有的第三方包为一个js

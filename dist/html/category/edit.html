@@ -17,7 +17,7 @@
     <div class="profile">
         <!-- 头像 -->
         <div class="avatar img-circle">
-            <img src="../../img/default.png">
+            <img src="">
         </div>
         <h4>布头儿</h4>
     </div>
@@ -133,7 +133,7 @@
               <!-- 这里利用这个值与options中的value比较，对上了，就让这个option选中 -->
                             <option value="0">顶级分类</option>
               {{each top categoryTop i}}
-                            <option value="categoryTop.cg_id" {{cg_pid==categoryTop.cg_id?'selected':''}}>
+                            <option value="{{categoryTop.cg_id}}" {{cg_pid==categoryTop.cg_id?'selected':''}}>
                                 {{categoryTop.cg_name}}
                             </option>
               {{/each}}
