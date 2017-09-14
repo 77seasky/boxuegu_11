@@ -89,7 +89,7 @@
                            <div class="col-xs-2">
                                <div class="checkbox">
                                    <label>
-                                       <input name="ct_is_free"  type="checkbox" {{ ct_is_free == 1? 'checked': '' }}> 免费课时
+                                       <input name="ct_is_free" value="1" type="checkbox" {{ ct_is_free == 1? 'checked': '' }}> 免费课时
                                    </label>
                                </div>
                            </div>
@@ -109,7 +109,7 @@
                                    class="form-control input-sm"
                                    placeholder="支持优酷、土豆、腾讯、网易公开课的视频页面地址导入">
                                    <span class="input-group-btn">
-                                       <button class="btn btn-success btn-sm">获取</button>
+                                       <button type="button" class="btn btn-success btn-sm">获取</button>
                                    </span>
                                </div>
                            </div>
@@ -132,12 +132,13 @@
                                 <p class="help-block">（如未设置，则默认学习时长为视频时长3倍取整。）</p>
                            </div>
                        </div>
+                        <div class="modal-footer">
+		                   <button type="button" class="btn btn-link btn-sm" data-dismiss="modal">取消</button>
+		                   <button type="submit" class="btn btn-success btn-sm">{{ ct_id? '保 存': '添 加' }}</button>
+		                </div>
                    </form>
                </div>
-               <div class="modal-footer">
-                   <button type="button" class="btn btn-link btn-sm" data-dismiss="modal">取消</button>
-                   <button type="submit" class="btn btn-success btn-sm">{{ ct_id? '保 存': '添 加' }}</button>
-              </div>
+              
            </div>
        </div>
     </script>

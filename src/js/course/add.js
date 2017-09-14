@@ -1,6 +1,7 @@
 require('../common/header.js');
 require('../common/aside.js');
-
+require('../common/loading.js');
+ require('../common/common.js');
 /**
  * 表单提交：
  * 1、插件ajaxForm方法处理表单

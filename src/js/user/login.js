@@ -1,3 +1,6 @@
+
+require('../common/loading.js');
+ require('../common/common.js');
 /**
  *回显历史登陆用户的头像 
  */

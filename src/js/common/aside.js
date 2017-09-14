@@ -13,7 +13,7 @@
  */
 var userinfoStr = localStorage.getItem('userinfo');
 var userinfo = JSON.parse(userinfoStr) || {};
-$('.aside img').attr('src', userinfo.tc_avatar || '/public/images/default.png');
+$('.aside img').attr('src', userinfo.tc_avatar || '/public/img/default.png');
 $('.aside h4').text(userinfo.tc_name);
 
 /**
